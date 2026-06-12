@@ -49,7 +49,7 @@ int main()
     cout << "Enter your gross income: $" << endl;
     cin >> grossIncome;
 
-    cout << "Enter the tax rate as percentage %: " << endl;
+    cout << "Enter the tax rate as a decimal: " << endl;
     cin >> taxRate;
 
     taxOwed = calcTax(grossIncome, taxRate);
@@ -70,8 +70,7 @@ int main()
     displayResult("Minutes", minutes);
     displayResult("Seconds", seconds);
 
-    // a static local variable is created only once and keeps its value between function calls.
-    // , while a regular local variable is recreated every time the function runs and loses its value when the function ends.
+
     printHeader("Static Variable");
 
     countCalls();
@@ -119,8 +118,7 @@ void mathSummary(double x)
 // ===== Part 2 – Value-Returning Function =====
 double calcTax(double income, double rate)
 {
-    rate = rate / 100;
-    return income * rate;
+    return income * rate;  //fixed calculating rate as a decimal directly.
 }
 
 // ===== Part 3 – Void Functions =====
@@ -146,13 +144,15 @@ void convertTime(int totalSeconds, int& minutes, int& seconds)
 }
 
 // ===== Part 5 – Scope and Static Variables =====
+// a static local variable is created only once and keeps its value between function calls.
+// , while a regular local variable is recreated every time the function runs and loses its value when the function ends.
 void countCalls()
 {
     static int callCount = 0;
     
     callCount = callCount + 1;
     
-    cout << "countCalls has been called " << callCount << " times." << endl;
+    cout << "countCalls has been called " << callCount << " time(s)." << endl;
 }
 
 // ===== Part 6 – Function Overloading =====
